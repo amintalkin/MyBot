@@ -340,9 +340,7 @@ EndFunc   ;==>runBot
 Func Idle() ;Sequence that runs until Full Army
 	Local $TimeIdle = 0 ;In Seconds
 	;If $debugsetlog = 1 Then SetLog("Func Idle ", $COLOR_PURPLE)
-
-	;mikemikemikecoc - Wait For Spells
-	While $fullArmy = False Or $bFullArmyHero = False Or $bFullArmySpells = False ;While $fullArmy = False Or $bFullArmyHero = False
+	While $fullArmy = False Or $bFullArmyHero = False
 		checkAndroidTimeLag()
 
 		If $RequestScreenshot = 1 Then PushMsg("RequestScreenshot")
@@ -363,7 +361,6 @@ Func Idle() ;Sequence that runs until Full Army
 			CheckOverviewFullArmy(True)
 			If _Sleep($iDelayIdle1) Then Return
 			getArmyHeroCount(True, True)
-			getArmySpellCount(True, True) ;mikemikemikecoc - Wait For Spells
 			If Not ($fullArmy) And $bTrainEnabled = True Then
 				SetLog("Army Camp and Barracks are not full, Training Continues...", $COLOR_ORANGE)
 				$CommandStop = 0
