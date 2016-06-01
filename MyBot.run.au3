@@ -474,8 +474,8 @@ Func AttackMain() ;Main control for attack functions
 				If _Sleep($iDelayAttackMain2) Then Return
 			Return True
 		Else
-			Setlog("No one of search condition match: (wait troops and/or heroes according to search settings)", $COLOR_BLUE)
-			Setlog(" - wait troops and/or heroes according to search settings", $COLOR_BLUE)
+			Setlog("No one of search condition match:", $COLOR_BLUE)
+			Setlog(" - wait troops, heroes and/or spells according to search settings", $COLOR_BLUE)
 		EndIf
 	Else
 		SetLog("Attacking Not Planned, Skipped..", $COLOR_RED)
