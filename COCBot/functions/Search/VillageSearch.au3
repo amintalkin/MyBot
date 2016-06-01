@@ -120,8 +120,8 @@ Func VillageSearch() ;Control for searching a village that meets conditions
 			$isModeActive[$i] = IsSearchModeActive($i)
 			If $isModeActive[$i] Then
 				$match[$i] = CompareResources($i)
-			Else 
-				Setlog("Search condition(s) not satisfied for " & $sModeText[$i]:", $COLOR_BLUE)
+			Else
+				Setlog("Search condition(s) not satisfied for " & $sModeText[$i] & ":", $COLOR_BLUE)
 				Setlog(" - wait troops, heroes and/or spells according to search settings", $COLOR_BLUE)
 			EndIf
 		Next
