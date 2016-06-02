@@ -68,6 +68,14 @@ Func VillageSearch() ;Control for searching a village that meets conditions
 
 	If $Is_SearchLimit = True Then $Is_SearchLimit = False
 
+	;mikemikemikecoc - Wait For Spells
+	For $i = 0 To $iModeCount - 2 ;check if DB and LB are active or not
+		If IsSearchModeActive($i) = False Then
+			Setlog("Search conditions not satisfied for " & $sModeText[$i] & ":", $COLOR_BLUE)
+			Setlog(" - wait troops, heroes and/or spells according to search settings", $COLOR_BLUE)
+		EndIf
+	Next
+
 
 	While 1 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;### Main Search Loop ###;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 		If $debugVillageSearchImages = 1 Then DebugImageSave("villagesearch")
@@ -120,9 +128,6 @@ Func VillageSearch() ;Control for searching a village that meets conditions
 			$isModeActive[$i] = IsSearchModeActive($i)
 			If $isModeActive[$i] Then
 				$match[$i] = CompareResources($i)
-			Else
-				Setlog("Search condition(s) not satisfied for " & $sModeText[$i] & ":", $COLOR_BLUE)
-				Setlog(" - wait troops, heroes and/or spells according to search settings", $COLOR_BLUE)
 			EndIf
 		Next
 
