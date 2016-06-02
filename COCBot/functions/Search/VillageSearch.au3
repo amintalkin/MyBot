@@ -71,7 +71,7 @@ Func VillageSearch() ;Control for searching a village that meets conditions
 	;mikemikemikecoc - Wait For Spells
 	For $i = 0 To $iModeCount - 2 ;check if DB and LB are active or not
 		If IsSearchModeActive($i) = False Then
-			Setlog("Search conditions not satisfied for " & $sModeText[$i] & ":", $COLOR_BLUE)
+			Setlog("Search conditions not satisfied for " & $sModeText[$i] & ", bases will be skipped:", $COLOR_BLUE)
 			Setlog(" - wait troops, heroes and/or spells according to search settings", $COLOR_BLUE)
 		EndIf
 	Next
